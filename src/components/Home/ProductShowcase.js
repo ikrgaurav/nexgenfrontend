@@ -11,7 +11,7 @@ const ProductShowcase = () => {
       <div className="lg:w-1/2 w-full mb-8 lg:mb-0 flex justify-center lg:justify-start">
         <div className="border-4 border-blue-600 p-4 rounded-lg shadow-lg">
           <Image
-            src="/path-to-your-image" // Replace with actual image path
+            src="/2.jpg" // Replace with actual image path
             alt={getTranslatedText("Nexgen Orthocare Product")}
             width={600}
             height={400}

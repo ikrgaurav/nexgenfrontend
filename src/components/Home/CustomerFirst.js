@@ -24,7 +24,7 @@ const CustomerFirst = () => {
       <div className="lg:w-1/2 w-full mt-8 lg:mt-0 flex justify-center lg:justify-end">
         <div className="rounded-lg shadow-lg overflow-hidden">
           <Image
-            src="/path-to-your-image" // Replace with actual image path
+            src="/3.jpeg" // Replace with actual image path
             alt={getTranslatedText("Customer First")}
             width={600}
             height={400}

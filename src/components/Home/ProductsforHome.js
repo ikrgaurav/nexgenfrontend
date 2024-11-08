@@ -3,12 +3,12 @@ import Image from 'next/image';
 import { useTranslation } from '../../context/TranslationContext';
 
 const categories = [
-  { title: 'Trauma', imgUrl: '/path-to-your-image1' },
-  { title: 'Sports Medicine', imgUrl: '/path-to-your-image2' },
-  { title: 'Spinal Implants', imgUrl: '/path-to-your-image3' },
-  { title: 'Joints Reconstruction', imgUrl: '/path-to-your-image4' },
-  { title: 'General Instruments', imgUrl: '/path-to-your-image5' },
-  { title: 'External Fixator System', imgUrl: '/path-to-your-image6' },
+  { title: 'Trauma', imgUrl: '/1.jpg' },
+  { title: 'Sports Medicine', imgUrl: '/1.jpg' },
+  { title: 'Spinal Implants', imgUrl: '/1.jpg' },
+  { title: 'Joints Reconstruction', imgUrl: '/1.jpg' },
+  { title: 'General Instruments', imgUrl: '/1.jpg' },
+  { title: 'External Fixator System', imgUrl: '/1.jpg' },
 ];
 
 const CategoryCard = ({ title, imgUrl }) => {

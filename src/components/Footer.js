@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useTranslation } from "../context/TranslationContext"; // Adjust based on your file structure
-import Image from 'next/image';
 
 // SVG logos for Visa, PayPal, Stripe, MasterCard, and Cash on Delivery
 const paymentLogos = [
@@ -12,27 +11,42 @@ const paymentLogos = [
 ];
 
 const Footer = () => {
-  const { language, setLanguage, getTranslatedText } = useTranslation();
+  const { getTranslatedText } = useTranslation();
+  const [blogs, setBlogs] = useState([]);
 
-  const handleLanguageChange = (event) => {
-    setLanguage(event.target.value);
-  };
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const response = await fetch('https://nexgen-068ea958c43a.herokuapp.com/api/blogs', {
+          headers: {
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_BLOG_TOKEN}`,
+          },
+        });
+        const data = await response.json();
+        setBlogs(data);
+      } catch (error) {
+        console.error('Error fetching blogs:', error);
+      }
+    };
+
+    fetchBlogs();
+  }, []);
 
   return (
-    <footer className="bg-blue-600 text-white py-8">
+    <footer className="bg-blue-900 text-white py-12 relative">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* Contact Section */}
         <address className="not-italic">
           <h3 className="text-lg font-semibold mb-4">{getTranslatedText("Contact Us")}</h3>
-          <p>
+          <p className="mb-2">
             {getTranslatedText("Email")}:{" "}
-            <a href="mailto:info@nexgenortho.com" className="underline focus:outline-none focus:ring-2 focus:ring-white">
+            <a href="mailto:info@nexgenortho.com" className="underline hover:text-gray-300 focus:outline-none focus:ring-2 focus:ring-white">
               info@nexgenortho.com
             </a>
           </p>
           <p>
             {getTranslatedText("Phone")}:{" "}
-            <a href="tel:+919999999999" className="underline focus:outline-none focus:ring-2 focus:ring-white">
+            <a href="tel:+919999999999" className="underline hover:text-gray-300 focus:outline-none focus:ring-2 focus:ring-white">
               +91-9999999999
             </a>
           </p>
@@ -42,15 +56,11 @@ const Footer = () => {
         <nav aria-label="Recent Posts">
           <h3 className="text-lg font-semibold mb-4">{getTranslatedText("Recent Posts")}</h3>
           <ul className="space-y-2">
-            <li>
-              <p>07 Oct - <a href="#" className="underline focus:outline-none focus:ring-2 focus:ring-white">{getTranslatedText("K-Nail for Femur Fractures: An Overview")}</a></p>
-            </li>
-            <li>
-              <p>03 Oct - <a href="#" className="underline focus:outline-none focus:ring-2 focus:ring-white">{getTranslatedText("HA Coated Polyaxial Screws: Breakthrough")}</a></p>
-            </li>
-            <li>
-              <p>09 Sep - <a href="#" className="underline focus:outline-none focus:ring-2 focus:ring-white">{getTranslatedText("Master Femur Nail: Step-by-Step Guide")}</a></p>
-            </li>
+            {blogs.slice(0, 3).map(blog => (
+              <li key={blog._id}>
+                <p>{new Date(blog.date).toLocaleDateString()} - <a href="#" className="underline hover:text-gray-300 focus:outline-none focus:ring-2 focus:ring-white">{blog.name}</a></p>
+              </li>
+            ))}
           </ul>
         </nav>
 
@@ -60,7 +70,7 @@ const Footer = () => {
           <ul className="space-y-2">
             {["Cmf", "External Fixator System", "General Instruments", "Joints Reconstruction", "Spinal Implants", "Sports Medicine", "Trauma"].map((category) => (
               <li key={category}>
-                <a href="#" className="underline focus:outline-none focus:ring-2 focus:ring-white">{getTranslatedText(category)}</a>
+                <a href="#" className="underline hover:text-gray-300 focus:outline-none focus:ring-2 focus:ring-white">{getTranslatedText(category)}</a>
               </li>
             ))}
           </ul>
@@ -87,29 +97,26 @@ const Footer = () => {
         </div>
       </div>
 
+      {/* Payment logos in the corner */}
+      <div className="absolute bottom-4 right-4 flex space-x-2">
+        {paymentLogos.map((logo, index) => (
+          <a
+            key={index}
+            href="#"
+            className="group focus:outline-none focus:ring-2 focus:ring-white"
+            aria-label={logo.label}
+          >
+            <img
+              src={logo.src}
+              alt={logo.alt}
+              className="h-6 w-auto grayscale group-hover:grayscale-0 group-hover:brightness-110 transition duration-200"
+            />
+          </a>
+        ))}
+      </div>
 
-
-      {/* Payment logos */}
-      <div className="border-t border-gray-300 mt-8 pt-4">
-        <div className="container mx-auto flex justify-between items-center">
-          <p>&copy; 2024 Nexgen Ortho</p>
-          <div className="flex space-x-4">
-            {paymentLogos.map((logo) => (
-              <a
-                key={logo.alt}
-                href="#"
-                className="group focus:outline-none focus:ring-2 focus:ring-white"
-                aria-label={logo.label}
-              >
-                <img
-                  src={logo.src}
-                  alt={logo.alt}
-                  className="h-6 w-auto grayscale group-hover:grayscale-0 group-hover:brightness-110 transition duration-200"
-                />
-              </a>
-            ))}
-          </div>
-        </div>
+      <div className="container mx-auto text-center mt-8">
+        <p className="text-sm">&copy; {new Date().getFullYear()} NexGen Ortho. All rights reserved.</p>
       </div>
     </footer>
   );
