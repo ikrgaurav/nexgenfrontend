@@ -22,7 +22,7 @@ export default function ProductHighlights() {
               {getTranslatedText("PRODUCT APPROVALS")}
             </h3>
             <p className="text-gray-600 transition duration-500 ease-in-out group-hover:text-gray-800">
-              {getTranslatedText("Uteshiya Medicare is one of the very few companies from India with more than 1000 approved products from CDSCO.")}
+              {getTranslatedText("NexGen Ortho is one of the very few companies from India with more than 1000 approved products from CDSCO.")}
             </p>
           </div>
 
@@ -39,7 +39,7 @@ export default function ProductHighlights() {
               {getTranslatedText("STERILE FACILITY")}
             </h3>
             <p className="text-gray-600 transition duration-500 ease-in-out group-hover:text-gray-800">
-              {getTranslatedText("Uteshiya Medicare is now approved by CDSCO to manufacture and sell Sterile Orthopedic Implants with approved In-House Sterile Facility.")}
+              {getTranslatedText("NexGen Ortho is now approved by CDSCO to manufacture and sell Sterile Orthopedic Implants with approved In-House Sterile Facility.")}
             </p>
           </div>
 
@@ -56,7 +56,7 @@ export default function ProductHighlights() {
               {getTranslatedText("COMPANY PRESENCE")}
             </h3>
             <p className="text-gray-600 transition duration-500 ease-in-out group-hover:text-gray-800">
-              {getTranslatedText("Uteshiya Medicare is now available in more than 30 countries across the globe, and in almost all continents of the world.")}
+              {getTranslatedText("NexGen Ortho is now available in more than 30 countries across the globe, and in almost all continents of the world.")}
             </p>
           </div>
         </div>
