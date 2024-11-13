@@ -99,8 +99,8 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Payment logos in the corner */}
-      <div className="flex justify-center md:justify-end mt-8 md:mt-0">
+      {/* Payment logos in the bottom middle */}
+      <div className="flex justify-center mt-8 md:mt-16">
         <div className="flex space-x-3">
           {paymentLogos.map((logo, index) => (
             <a
@@ -119,7 +119,8 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="container mx-auto text-center mt-8">
+      {/* All rights reserved text */}
+      <div className="container mx-auto text-center mt-4 md:mt-8">
         <p className="text-sm">&copy; {new Date().getFullYear()} NexGen Ortho. All rights reserved.</p>
       </div>
     </footer>

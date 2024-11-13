@@ -8,11 +8,11 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleLanguageChange = (event) => {
-    setLanguage(event.target.value);
+    setLanguage(event.target.value); // Update language immediately
   };
 
   const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
+    setIsMobileMenuOpen(!isMobileMenuOpen); // Toggle mobile menu
   };
 
   return (
@@ -23,9 +23,9 @@ const Navbar = () => {
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
               <Image 
-                src="/logo.png"
+                src="/logo.png"  // Path to your logo in the public folder
                 alt="NexGen Logo"
-                width={100}
+                width={100}       // Adjust width and height to fit
                 height={100}
                 className="transition-transform duration-300 ease-in-out transform hover:scale-110"
               />
@@ -51,8 +51,8 @@ const Navbar = () => {
             </Link>
           </div>
 
-          {/* Language Selector */}
-          <div className="relative hidden md:flex items-center">
+          {/* Language Selector - Only visible in desktop view */}
+          <div className="hidden md:flex items-center">
             <select
               value={language}
               onChange={handleLanguageChange}

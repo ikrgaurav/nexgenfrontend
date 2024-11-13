@@ -1,6 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
-
 const TranslationContext = createContext();
 
 export const TranslationProvider = ({ children }) => {
@@ -52,7 +51,7 @@ export const TranslationProvider = ({ children }) => {
     const elements = document.body.querySelectorAll('*:not(script):not(style)');
     const textsToTranslate = Array.from(elements)
       .map((el) => el.innerText)
-      .filter((text) => text.trim());
+      .filter((text) => text && text.trim()); // Ensure text is a valid string before calling trim()
 
     if (language === 'en') {
       const newOriginalTexts = {};
