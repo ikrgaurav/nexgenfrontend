@@ -6,6 +6,7 @@ import ProductHighlights from '@/components/Home/ProductHighlights';
 import CategoriesGrid from '@/components/Home/ProductsforHome';
 import ProductShowcase from '@/components/Home/ProductShowcase';
 import CustomerFirst from '@/components/Home/CustomerFirst';
+import BrandPartnerBand from '@/components/Home/BrandPartner';
 
 const HomePage = () => {
   const { getTranslatedText } = useTranslation();
@@ -14,6 +15,7 @@ const HomePage = () => {
     <>
     <Carousel/>
     <ProductHighlights/>
+    <BrandPartnerBand/>
     <CategoriesGrid/>
     <ProductShowcase/>
     <CustomerFirst/>
