@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useTranslation } from "../context/TranslationContext"; // Adjust based on your file structure
+import { useTranslation } from "../context/TranslationContext";
 
-// SVG logos for Visa, PayPal, Stripe, MasterCard, and Cash on Delivery
 const paymentLogos = [
   { src: "https://cdn-icons-png.freepik.com/512/16183/16183667.png?ga=GA1.1.1686302359.1726215616", alt: "Visa", label: "Visa" },
   { src: "https://cdn-icons-png.freepik.com/512/888/888870.png?ga=GA1.1.1686302359.1726215616", alt: "PayPal", label: "PayPal" },
@@ -23,7 +22,8 @@ const Footer = () => {
           },
         });
         const data = await response.json();
-        setBlogs(data);
+        const sortedBlogs = data.sort((a, b) => new Date(b.date) - new Date(a.date));
+        setBlogs(sortedBlogs.slice(0, 3));
       } catch (error) {
         console.error('Error fetching blogs:', error);
       }
@@ -33,12 +33,12 @@ const Footer = () => {
   }, []);
 
   return (
-    <footer className="bg-blue-900 text-white py-12 relative">
+    <footer className="bg-gradient-to-br from-blue-600 to-cyan-400 text-white py-16 relative">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* Contact Section */}
-        <address className="not-italic">
+        <address className="not-italic space-y-2">
           <h3 className="text-lg font-semibold mb-4">{getTranslatedText("Contact Us")}</h3>
-          <p className="mb-2">
+          <p>
             {getTranslatedText("Email")}:{" "}
             <a href="mailto:info@nexgenortho.com" className="underline hover:text-gray-300 focus:outline-none focus:ring-2 focus:ring-white">
               info@nexgenortho.com
@@ -56,9 +56,11 @@ const Footer = () => {
         <nav aria-label="Recent Posts">
           <h3 className="text-lg font-semibold mb-4">{getTranslatedText("Recent Posts")}</h3>
           <ul className="space-y-2">
-            {blogs.slice(0, 3).map(blog => (
+            {blogs.map(blog => (
               <li key={blog._id}>
-                <p>{new Date(blog.date).toLocaleDateString()} - <a href="#" className="underline hover:text-gray-300 focus:outline-none focus:ring-2 focus:ring-white">{blog.name}</a></p>
+                <p className="text-sm">
+                  {new Date(blog.date).toLocaleDateString()} - <a href="#" className="underline hover:text-gray-300">{blog.name}</a>
+                </p>
               </li>
             ))}
           </ul>
@@ -70,7 +72,7 @@ const Footer = () => {
           <ul className="space-y-2">
             {["Cmf", "External Fixator System", "General Instruments", "Joints Reconstruction", "Spinal Implants", "Sports Medicine", "Trauma"].map((category) => (
               <li key={category}>
-                <a href="#" className="underline hover:text-gray-300 focus:outline-none focus:ring-2 focus:ring-white">{getTranslatedText(category)}</a>
+                <a href="#" className="underline hover:text-gray-300">{getTranslatedText(category)}</a>
               </li>
             ))}
           </ul>
@@ -83,12 +85,12 @@ const Footer = () => {
             <input
               type="email"
               placeholder={getTranslatedText("Your Email")}
-              className="w-full px-3 py-2 text-gray-800 rounded mb-2"
+              className="w-full px-4 py-2 text-gray-800 rounded-md mb-2 focus:ring-2 focus:ring-blue-300"
               aria-label="Email address for newsletter subscription"
             />
             <button
               type="submit"
-              className="bg-white text-blue-600 px-4 py-2 rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-600"
+              className="bg-white text-blue-600 px-4 py-2 rounded-md w-full hover:bg-blue-50 transition focus:outline-none focus:ring-2 focus:ring-blue-600"
               aria-label={getTranslatedText("Subscribe to newsletter")}
             >
               {getTranslatedText("Subscribe")}
@@ -98,7 +100,7 @@ const Footer = () => {
       </div>
 
       {/* Payment logos in the corner */}
-      <div className="absolute bottom-4 right-4 flex space-x-2">
+      <div className="absolute bottom-4 right-4 flex space-x-3">
         {paymentLogos.map((logo, index) => (
           <a
             key={index}
@@ -109,13 +111,13 @@ const Footer = () => {
             <img
               src={logo.src}
               alt={logo.alt}
-              className="h-6 w-auto grayscale group-hover:grayscale-0 group-hover:brightness-110 transition duration-200"
+              className="h-8 w-auto grayscale group-hover:grayscale-0 group-hover:brightness-110 transition duration-300"
             />
           </a>
         ))}
       </div>
 
-      <div className="container mx-auto text-center mt-8">
+      <div className="container mx-auto text-center mt-12">
         <p className="text-sm">&copy; {new Date().getFullYear()} NexGen Ortho. All rights reserved.</p>
       </div>
     </footer>

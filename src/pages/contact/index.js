@@ -44,19 +44,17 @@ export default function ContactForm() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div>
-          <h2 className="text-2xl font-bold mb-4">{getTranslatedText('Our Address')}</h2>
-          <p className="text-gray-600">
-            Danapur,<br />
-            Patna,<br />
-            Bihar - 000 000
-          </p>
+
           <p className="mt-4">
-            <strong>{getTranslatedText('Mobile:')}</strong> 0512-2304044
+            <strong>{getTranslatedText('Mobile:')}</strong><br/> <b>Domestic enquiry</b><br/>7294068068 - Sunny Kumar<br/>
+            7354070644 - Rahul Prasad <br/><br/>
+            <b>For export enquiry</b><br/>
+            8882912009 - Lovely Madhurya <br/><br/><br/>
           </p>
           <p>
             <strong>{getTranslatedText('Email:')}</strong>
-            <a href="mailto:kkr2810@yahoo.com" className="text-blue-500">
-              kkr2810@yahoo.com
+            <a href="mailto:info@orthonexgen.com" className="text-blue-500">
+            <br/> info@orthonexgen.com
             </a>
           </p>
         </div>

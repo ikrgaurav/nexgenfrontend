@@ -1,6 +1,6 @@
-// components/Navbar.js
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image'; // Import Next.js Image component
 import { useTranslation } from '../context/TranslationContext';
 
 const Navbar = () => {
@@ -16,10 +16,14 @@ const Navbar = () => {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <div className="flex items-center">
-            <Link href="/" className="flex items-center text-gray-800 hover:text-gray-900">
-              <span className="font-bold text-2xl transition-transform duration-300 ease-in-out transform hover:scale-110">
-                {getTranslatedText('NexGen')}
-              </span>
+            <Link href="/" className="flex items-center">
+              <Image 
+                src="/logo.png"  // Replace with the path to your logo in the public folder
+                alt="NexGen Logo"
+                width={100}       // Adjust width and height to fit
+                height={100}
+                className="transition-transform duration-300 ease-in-out transform hover:scale-110"
+              />
             </Link>
           </div>
 
