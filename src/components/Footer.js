@@ -33,10 +33,10 @@ const Footer = () => {
   }, []);
 
   return (
-    <footer className="bg-gradient-to-br from-blue-600 to-cyan-400 text-white py-16 relative">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer className="bg-gradient-to-br from-blue-600 to-cyan-400 text-white py-10 md:py-16 relative">
+      <div className="container mx-auto grid grid-cols-1 gap-8 md:grid-cols-4 px-6">
         {/* Contact Section */}
-        <address className="not-italic space-y-2">
+        <address className="not-italic space-y-2 text-center md:text-left">
           <h3 className="text-lg font-semibold mb-4">{getTranslatedText("Contact Us")}</h3>
           <p>
             {getTranslatedText("Email")}:{" "}
@@ -53,7 +53,7 @@ const Footer = () => {
         </address>
 
         {/* Recent Posts Section */}
-        <nav aria-label="Recent Posts">
+        <nav aria-label="Recent Posts" className="text-center md:text-left">
           <h3 className="text-lg font-semibold mb-4">{getTranslatedText("Recent Posts")}</h3>
           <ul className="space-y-2">
             {blogs.map(blog => (
@@ -67,7 +67,7 @@ const Footer = () => {
         </nav>
 
         {/* Product Categories Section */}
-        <nav aria-label="Product Categories">
+        <nav aria-label="Product Categories" className="text-center md:text-left">
           <h3 className="text-lg font-semibold mb-4">{getTranslatedText("Product Categories")}</h3>
           <ul className="space-y-2">
             {["Cmf", "External Fixator System", "General Instruments", "Joints Reconstruction", "Spinal Implants", "Sports Medicine", "Trauma"].map((category) => (
@@ -79,9 +79,9 @@ const Footer = () => {
         </nav>
 
         {/* Newsletter Section */}
-        <div>
+        <div className="text-center md:text-left">
           <h3 className="text-lg font-semibold mb-4">{getTranslatedText("Newsletter")}</h3>
-          <form>
+          <form className="flex flex-col items-center md:items-start space-y-2">
             <input
               type="email"
               placeholder={getTranslatedText("Your Email")}
@@ -100,24 +100,26 @@ const Footer = () => {
       </div>
 
       {/* Payment logos in the corner */}
-      <div className="absolute bottom-4 right-4 flex space-x-3">
-        {paymentLogos.map((logo, index) => (
-          <a
-            key={index}
-            href="#"
-            className="group focus:outline-none focus:ring-2 focus:ring-white"
-            aria-label={logo.label}
-          >
-            <img
-              src={logo.src}
-              alt={logo.alt}
-              className="h-8 w-auto grayscale group-hover:grayscale-0 group-hover:brightness-110 transition duration-300"
-            />
-          </a>
-        ))}
+      <div className="flex justify-center md:justify-end mt-8 md:mt-0">
+        <div className="flex space-x-3">
+          {paymentLogos.map((logo, index) => (
+            <a
+              key={index}
+              href="#"
+              className="group focus:outline-none focus:ring-2 focus:ring-white"
+              aria-label={logo.label}
+            >
+              <img
+                src={logo.src}
+                alt={logo.alt}
+                className="h-8 w-auto grayscale group-hover:grayscale-0 group-hover:brightness-110 transition duration-300"
+              />
+            </a>
+          ))}
+        </div>
       </div>
 
-      <div className="container mx-auto text-center mt-12">
+      <div className="container mx-auto text-center mt-8">
         <p className="text-sm">&copy; {new Date().getFullYear()} NexGen Ortho. All rights reserved.</p>
       </div>
     </footer>
