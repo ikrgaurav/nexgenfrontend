@@ -4,11 +4,9 @@ import { useTranslation } from '../../context/TranslationContext';
 
 const categories = [
   { title: 'Trauma', imgUrl: '/1.jpg' },
-  { title: 'Sports Medicine', imgUrl: '/1.jpg' },
+  { title: 'Arthroscopy', imgUrl: '/1.jpg' },
   { title: 'Spinal Implants', imgUrl: '/1.jpg' },
-  { title: 'Joints Reconstruction', imgUrl: '/1.jpg' },
-  { title: 'General Instruments', imgUrl: '/1.jpg' },
-  { title: 'External Fixator System', imgUrl: '/1.jpg' },
+  { title: 'Dental Implants', imgUrl: '/1.jpg' }
 ];
 
 const CategoryCard = ({ title, imgUrl }) => {
@@ -34,7 +32,7 @@ const CategoriesGrid = () => {
       <h2 className="text-3xl font-bold text-center mb-8">
         {getTranslatedText("Choose Your Area of Interest")}
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-8">
         {categories.map((category, index) => (
           <CategoryCard key={index} title={category.title} imgUrl={category.imgUrl} />
         ))}

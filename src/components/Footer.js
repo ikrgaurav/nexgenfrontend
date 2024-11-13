@@ -73,7 +73,7 @@ const Footer = () => {
         <nav aria-label="Product Categories" className="text-center md:text-left">
           <h3 className="text-lg font-semibold mb-4">{getTranslatedText("Product Categories")}</h3>
           <ul className="space-y-2">
-            {["Cmf", "External Fixator System", "General Instruments", "Joints Reconstruction", "Spinal Implants", "Sports Medicine", "Trauma"].map((category) => (
+            {["Trauma", "Spinal Implants", "Arthroscopy", "Dental Implants"].map((category) => (
               <li key={category}>
                 <a href="#" className="underline hover:text-gray-300">{getTranslatedText(category)}</a>
               </li>
