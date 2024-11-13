@@ -41,13 +41,16 @@ const Footer = () => {
           <p>
             {getTranslatedText("Email")}:{" "}
             <a href="mailto:info@nexgenortho.com" className="underline hover:text-gray-300 focus:outline-none focus:ring-2 focus:ring-white">
-              info@nexgenortho.com
+              info@orthonexgen.com
             </a>
           </p>
           <p>
             {getTranslatedText("Phone")}:{" "}
-            <a href="tel:+919999999999" className="underline hover:text-gray-300 focus:outline-none focus:ring-2 focus:ring-white">
-              +91-9999999999
+            <a href="/contact" className="hover:text-gray-300 focus:outline-none focus:ring-2 focus:ring-white">
+            <br/> <b>Domestic enquiry</b><br/>7294068068 - Sunny Kumar<br/>
+            7354070644 - Rahul Prasad <br/><br/>
+            <b>For export enquiry</b><br/>
+            8882912009 - Lovely Madhurya <br/><br/><br/>
             </a>
           </p>
         </address>
