@@ -17,7 +17,7 @@ const BlogPage = () => {
       try {
         const token = process.env.NEXT_PUBLIC_BLOG_TOKEN; // Replace with actual token
 
-        const response = await axios.get("https://nexgen-068ea958c43a.herokuapp.com/api/blogs", {
+        const response = await axios.get("https://nexgenbackend.onrender.com/api/blogs", {
           headers: {
             "Authorization": `Bearer ${token}`,
             "Content-Type": "application/json",
