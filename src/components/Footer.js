@@ -47,10 +47,10 @@ const Footer = () => {
           <p>
             {getTranslatedText("Phone")}:{" "}
             <a href="/contact" className="hover:text-gray-300 focus:outline-none focus:ring-2 focus:ring-white">
-            <br/> <b>Domestic enquiry</b><br/>7294068068 - Sunny Kumar<br/>
-            7354070644 - Rahul Prasad <br/><br/>
+            <br/> <b>Domestic enquiry</b><br/>7294068068<br/>
+            7354070644<br/><br/>
             <b>For export enquiry</b><br/>
-            8882912009 - Lovely Madhurya <br/><br/><br/>
+            8882912009<br/><br/><br/>
             </a>
           </p>
         </address>
