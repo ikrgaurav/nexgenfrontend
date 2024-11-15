@@ -16,7 +16,7 @@ const Footer = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const response = await fetch('https://nexgenbackend.onrender.com/api/blogs', {
+        const response = await fetch('https://nexgen-068ea958c43a.herokuapp.com/api/blogs', {
           headers: {
             Authorization: `Bearer ${process.env.NEXT_PUBLIC_BLOG_TOKEN}`,
           },
