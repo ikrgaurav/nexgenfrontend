@@ -214,7 +214,7 @@ const BlogPost = () => {
 
         <nav className="mt-12 flex justify-between">
           <button
-            onClick={() => router.push("/blog")}
+            onClick={() => router.push("/blogs")}
             className="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 transition-colors"
           >
             ← Back to Blog
